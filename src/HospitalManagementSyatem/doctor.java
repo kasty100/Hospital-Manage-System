@@ -19,15 +19,15 @@ public class doctor {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             ResultSet resultSet = preparedStatement.executeQuery();
             System.out.println("Doctors: ");
-            System.out.println("+------------+--------------------+------------------+");
-            System.out.println("| Doctor Id  | Name               | department       |");
-            System.out.println("+------------+--------------------+------------------+");
+            System.out.println("+------------+--------------------+--------------------------------+");
+            System.out.println("| Doctor Id  | Name               |   department                   |");
+            System.out.println("+------------+--------------------+--------------------------------+");
             while(resultSet.next()){
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String department = resultSet.getString("department");
-                System.out.printf("| %-10s | %-18s | %-16s |\n", id, name, department);
-                System.out.println("+------------+--------------------+------------------+");
+                System.out.printf("| %-10s | %-18s | %-30s |\n", id, name, department);
+                System.out.println("+------------+--------------------+--------------------------------+");
             }
 
         }catch (SQLException e){
